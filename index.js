@@ -13,5 +13,4 @@ const multiplyButton = document.querySelector(".multiply");
 const subtractButton = document.querySelector(".subtract");
 const addButton = document.querySelector(".add");
 const equalsButton = document.querySelector(".equals");
-const button = document.querySelector(".decimal");
-
+const button = document.querySelector(".clear");
