@@ -68,3 +68,9 @@ addButton.addEventListener('click', () => {
     saveNumber();
 });
 
+equalsButton.addEventListener('click', () => {
+    saveNumber();
+    console.log(numList);
+    console.log(operationList);
+
+});
