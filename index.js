@@ -26,8 +26,11 @@ for (let i = 0; i < 9;i++){
     numButtons[i].addEventListener('click', () => {
         if (result === 0) {
             result = i + 1;
+            display.textContent = result;
             return;
         }
         result += (i+1).toString();
+        display.textContent = result;
     });
 }
+
