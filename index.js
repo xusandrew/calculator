@@ -19,42 +19,52 @@ const addButton = document.querySelector(".add");
 const equalsButton = document.querySelector(".equals");
 const clearButton = document.querySelector(".clear");
 
-var result = 0;
+var currentNum = 0;
 var numList = [];
 var operationList = [];
 
+const saveNumber = function(){
+    numList.push(currentNum);
+    currentNum = 0;
+    display.textContent = currentNum;
+}
+
 for (let i = 0; i < 9;i++){
     numButtons[i].addEventListener('click', () => {
-        if (result === 0) {
-            result = i + 1;
-            display.textContent = result;
+        if (currentNum === 0) {
+            currentNum = i + 1;
+            display.textContent = currentNum;
             return;
         }
-        result += (i+1).toString();
-        display.textContent = result;
+        currentNum += (i+1).toString();
+        display.textContent = currentNum;
     });
 }
 
 clearButton.addEventListener('click', () => {
-    result = 0;
+    currentNum = 0;
     numList = [];
     operationList = [];
-    display.textContent = result;
+    display.textContent = currentNum;
 });
 
 divideButton.addEventListener('click', () => {
     operationList.push("/");
+    saveNumber();
 });
 
 multiplyButton.addEventListener('click', () => {
     operationList.push("x");
+    saveNumber();
 });
 
 subtractButton.addEventListener('click', () => {
     operationList.push("-");
+    saveNumber();
 });
 
 addButton.addEventListener('click', () => {
     operationList.push("+");
+    saveNumber();
 });
 
