@@ -20,7 +20,8 @@ const equalsButton = document.querySelector(".equals");
 const clearButton = document.querySelector(".clear");
 
 var result = 0;
-var operation = NaN;
+var numList = [];
+var operationList = [];
 
 for (let i = 0; i < 9;i++){
     numButtons[i].addEventListener('click', () => {
@@ -34,9 +35,16 @@ for (let i = 0; i < 9;i++){
     });
 }
 
-clearButton.addEventListener('click', () =>{
+clearButton.addEventListener('click', () => {
     result = 0;
-    operation = NaN;
+    numList = [];
+    operationList = [];
     display.textContent = result;
+});
+
+divideButton.addEventListener('click', () => {
+    
+
+
 });
 
