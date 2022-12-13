@@ -18,30 +18,42 @@ const addButton = document.querySelector(".add");
 const equalsButton = document.querySelector(".equals");
 const clearButton = document.querySelector(".clear");
 
+var result = -1;
 var currentNum = 0;
 var numList = [];
 var operationList = [];
 
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
 function subtract(a, b) {
-    return a - b;
+  return a - b;
 }
 
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
 
 function divide(a, b) {
-    return Math.floor(a/b);
+  return Math.floor(a / b);
 }
 
 function saveNumber() {
-    numList.push(currentNum);
-    currentNum = 0;
-    display.textContent = currentNum;
+  numList.push(currentNum);
+  currentNum = 0;
+  display.textContent = currentNum;
+}
+
+function evaluate() {
+  let ans = numList[0];
+  for (let i = 0; i < operationList.length; i++) {
+    if (operationList[i] === "+") ans = add(ans, numList[i + 1]);
+    if (operationList[i] === "-") ans = subtract(ans, numList[i + 1]);
+    if (operationList[i] === "x") ans = multiply(ans, numList[i + 1]);
+    if (operationList[i] === "/") ans = divide(ans, numList[i + 1]);
+  }
+  return ans;
 }
 
 for (let i = 0; i < 9; i++) {
@@ -87,4 +99,6 @@ equalsButton.addEventListener("click", () => {
   saveNumber();
   console.log(numList);
   console.log(operationList);
+  result = evaluate();
+  console.log(result);
 });
