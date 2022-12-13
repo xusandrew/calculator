@@ -43,8 +43,18 @@ clearButton.addEventListener('click', () => {
 });
 
 divideButton.addEventListener('click', () => {
-    
+    operationList.push("/");
+});
 
+multiplyButton.addEventListener('click', () => {
+    operationList.push("x");
+});
 
+subtractButton.addEventListener('click', () => {
+    operationList.push("-");
+});
+
+addButton.addEventListener('click', () => {
+    operationList.push("+");
 });
 
