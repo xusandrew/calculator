@@ -11,7 +11,6 @@ const numButtons = [
   document.querySelector(".num9"),
 ];
 
-
 const divideButton = document.querySelector(".divide");
 const multiplyButton = document.querySelector(".multiply");
 const subtractButton = document.querySelector(".subtract");
@@ -23,54 +22,69 @@ var currentNum = 0;
 var numList = [];
 var operationList = [];
 
-const saveNumber = function(){
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return Math.floor(a/b);
+}
+
+function saveNumber() {
     numList.push(currentNum);
     currentNum = 0;
     display.textContent = currentNum;
 }
 
-for (let i = 0; i < 9;i++){
-    numButtons[i].addEventListener('click', () => {
-        if (currentNum === 0) {
-            currentNum = i + 1;
-            display.textContent = currentNum;
-            return;
-        }
-        currentNum += (i+1).toString();
-        display.textContent = currentNum;
-    });
+for (let i = 0; i < 9; i++) {
+  numButtons[i].addEventListener("click", () => {
+    if (currentNum === 0) {
+      currentNum = i + 1;
+      display.textContent = currentNum;
+      return;
+    }
+    currentNum += (i + 1).toString();
+    display.textContent = currentNum;
+  });
 }
 
-clearButton.addEventListener('click', () => {
-    currentNum = 0;
-    numList = [];
-    operationList = [];
-    display.textContent = currentNum;
+clearButton.addEventListener("click", () => {
+  currentNum = 0;
+  numList = [];
+  operationList = [];
+  display.textContent = currentNum;
 });
 
-divideButton.addEventListener('click', () => {
-    operationList.push("/");
-    saveNumber();
+divideButton.addEventListener("click", () => {
+  operationList.push("/");
+  saveNumber();
 });
 
-multiplyButton.addEventListener('click', () => {
-    operationList.push("x");
-    saveNumber();
+multiplyButton.addEventListener("click", () => {
+  operationList.push("x");
+  saveNumber();
 });
 
-subtractButton.addEventListener('click', () => {
-    operationList.push("-");
-    saveNumber();
+subtractButton.addEventListener("click", () => {
+  operationList.push("-");
+  saveNumber();
 });
 
-addButton.addEventListener('click', () => {
-    operationList.push("+");
-    saveNumber();
+addButton.addEventListener("click", () => {
+  operationList.push("+");
+  saveNumber();
 });
 
-equalsButton.addEventListener('click', () => {
-    saveNumber();
-    console.log(numList);
-    console.log(operationList);
-
+equalsButton.addEventListener("click", () => {
+  saveNumber();
+  console.log(numList);
+  console.log(operationList);
 });
