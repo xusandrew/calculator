@@ -17,7 +17,7 @@ const multiplyButton = document.querySelector(".multiply");
 const subtractButton = document.querySelector(".subtract");
 const addButton = document.querySelector(".add");
 const equalsButton = document.querySelector(".equals");
-const button = document.querySelector(".clear");
+const clearButton = document.querySelector(".clear");
 
 var result = 0;
 var operation = NaN;
@@ -33,4 +33,10 @@ for (let i = 0; i < 9;i++){
         display.textContent = result;
     });
 }
+
+clearButton.addEventListener('click', () =>{
+    result = 0;
+    operation = NaN;
+    display.textContent = result;
+});
 
