@@ -40,8 +40,7 @@ function divide(a, b) {
 }
 
 function saveNumber() {
-    if (currentNum === 0 && display.textContent == result)
-        return;
+  if (currentNum === 0 && display.textContent == result) return;
 
   numList.push(parseInt(currentNum));
   currentNum = 0;
@@ -49,7 +48,7 @@ function saveNumber() {
 }
 
 function evaluate() {
-  if (numList.length - 1 != operationList.length){
+  if (numList.length - 1 != operationList.length) {
     return "Error";
   }
 
@@ -65,8 +64,7 @@ function evaluate() {
 
 for (let i = 0; i < 9; i++) {
   numButtons[i].addEventListener("click", () => {
-    if (numList.length - 1 === operationList.length)
-        clear();
+    if (numList.length - 1 === operationList.length) clear();
 
     if (currentNum === 0) {
       currentNum = i + 1;
@@ -78,12 +76,12 @@ for (let i = 0; i < 9; i++) {
   });
 }
 
-function clear(){
-    result = 0;
-    currentNum = 0;
-    numList = [];
-    operationList = [];
-    display.textContent = currentNum;
+function clear() {
+  result = 0;
+  currentNum = 0;
+  numList = [];
+  operationList = [];
+  display.textContent = currentNum;
 }
 
 clearButton.addEventListener("click", clear);
@@ -112,6 +110,4 @@ equalsButton.addEventListener("click", () => {
   saveNumber();
   result = evaluate();
   display.textContent = result;
-  console.log(numList)
-  console.log(operationList)
 });
