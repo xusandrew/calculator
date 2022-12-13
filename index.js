@@ -40,7 +40,7 @@ function divide(a, b) {
 }
 
 function saveNumber() {
-  numList.push(currentNum);
+  numList.push(parseInt(currentNum));
   currentNum = 0;
   display.textContent = currentNum;
 }
