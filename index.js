@@ -46,6 +46,10 @@ function saveNumber() {
 }
 
 function evaluate() {
+  if (numList.length - 1 != operationList.length){
+    return "Error";
+  }
+
   let ans = numList[0];
   for (let i = 0; i < operationList.length; i++) {
     if (operationList[i] === "+") ans = add(ans, numList[i + 1]);
@@ -69,6 +73,7 @@ for (let i = 0; i < 9; i++) {
 }
 
 clearButton.addEventListener("click", () => {
+  result = 0;
   currentNum = 0;
   numList = [];
   operationList = [];
@@ -97,8 +102,6 @@ addButton.addEventListener("click", () => {
 
 equalsButton.addEventListener("click", () => {
   saveNumber();
-  console.log(numList);
-  console.log(operationList);
   result = evaluate();
-  console.log(result);
+  display.textContent = result;
 });
